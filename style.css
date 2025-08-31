@@ -1,0 +1,84 @@
+/* Base look */
+:root{
+  --bg1:#f8e6ce;
+  --bg2:#f5e1c7;
+  --card:#fff;
+  --brown:#8b5e34;
+  --text:#1f2937;
+  --muted:#94a3b8;
+  --accent:#F59E0B;
+  --dot:#34d399;
+  --cardW:70px;
+}
+
+html,body{height:100%}
+body{margin:0; color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;}
+
+.app-bg{
+  background: radial-gradient(120% 120% at 50% -10%, var(--bg1) 0%, var(--bg2) 60%, #f7e9d6 100%);
+}
+.app-maxw{ max-width: 420px; }
+
+.text-brown{ color:var(--brown) }
+
+/* Month bar */
+.month-bar{ background:#FAE7D0 }
+
+/* Calendar scroller */
+.scroller{
+  display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+  padding-inline:0; scroll-padding:0; padding-block:8px 14px; scrollbar-width:none;
+}
+.scroller::-webkit-scrollbar{ display:none; }
+
+.day{
+  flex:0 0 auto; width:var(--cardW); height:104px; border-radius:16px; background:var(--card);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  box-shadow:0 1px 1px rgba(0,0,0,.04),0 6px 16px rgba(15,23,42,.06);
+  scroll-snap-align:center; user-select:none; cursor:pointer; border:0;
+  scroll-margin-inline: calc(50% - (var(--cardW) / 2));
+}
+.date{ font-size:22px; font-weight:800; line-height:1; }
+.wd{ margin-top:6px; font-size:11px; color:#8aa0b5; }
+.dot{ width:7px; height:7px; border-radius:50%; background:var(--dot); margin-top:10px; }
+.day.active{ background:var(--accent); color:#fff; }
+.day.active .wd{ color:#fff; opacity:.95; }
+@media (max-width:420px){
+  :root{ --cardW:64px; }
+  .day{ height:96px; }
+}
+
+/* Tabs */
+.nav-underline .nav-link{ color:#a38769; font-weight:600; }
+.nav-underline .nav-link.active{ color:#c97706; }
+.nav-underline .nav-link::after{ background-color:#f0bb6a; height:3px; border-radius:2px; }
+
+/* Record cards */
+.record-card{ border:0; border-radius:16px; box-shadow:0 1px 1px rgba(0,0,0,.04), 0 8px 20px rgba(0,0,0,.06); }
+.record-card .card-body{ padding:14px 16px; }
+.avatar{ width:44px; height:44px; border-radius:999px; object-fit:cover; border:3px solid #e2f5ea; box-shadow:0 2px 6px rgba(0,0,0,.08); }
+.time{ font-weight:800; color:#2e2e2e; }
+.bg-outline{ background:#f6f6f6; color:#6a6a6a; border:1px solid #e7e7e7; }
+.bg-pink{ background:#fde9ef; }
+.text-pink-dark{ color:#d06a8b; }
+
+/* Add new card button */
+.add-card{
+  background:#fff; border:0; border-radius:16px; padding:16px; box-shadow:0 1px 1px rgba(0,0,0,.04), 0 8px 20px rgba(0,0,0,.06);
+  color:#7a7a7a; font-weight:600;
+}
+
+/* Bottom nav */
+.bottom-nav{
+  position:fixed; left:0; right:0; bottom:0; display:flex; justify-content:space-around; align-items:center;
+  background:#fff; border-top-left-radius:16px; border-top-right-radius:16px;
+  box-shadow:0 -4px 16px rgba(0,0,0,.08);
+  padding:10px 8px 8px; margin:0 auto; max-width:420px;
+}
+.bottom-nav .item{ text-decoration:none; color:#8d8d8d; font-size:12px; display:flex; flex-direction:column; align-items:center; gap:4px; padding:6px 10px; }
+.bottom-nav .item i{ font-size:20px; }
+.bottom-nav .item.active{ color:#f59e0b; }
+.bottom-nav .indicator{ position:absolute; bottom:0; left:25%; transform:translateX(-50%); width:46px; height:3px; background:#111; border-radius:999px; opacity:.8; }
+
+/* space for bottom bar */
+.pb-6{ padding-bottom: 88px !important; }
